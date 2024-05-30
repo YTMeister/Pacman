@@ -1,16 +1,5 @@
 class Ghost {
-    constructor(
-        x,
-        y,
-        width,
-        height,
-        speed,
-        imageX,
-        imageY,
-        imageWidth,
-        imageHeight,
-        range
-    ) {
+    constructor(x, y, width, height, speed, imageX, imageY, imageWidth, imageHeight, range) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -24,6 +13,7 @@ class Ghost {
         this.range = range;
         this.randomTargetIndex = parseInt(Math.random() * 4);
         this.target = randomTargetsForGhosts[this.randomTargetIndex];
+        
         setInterval(() => {
             this.changeRandomDirection();
         }, 10000);
@@ -98,9 +88,7 @@ class Ghost {
     checkCollisions() {
         let isCollided = false;
         if (
-            map[parseInt(this.y / oneBlockSize)][
-                parseInt(this.x / oneBlockSize)
-            ] == 1 ||
+            map[parseInt(this.y / oneBlockSize)][parseInt(this.x / oneBlockSize)] == 1 ||
             map[parseInt(this.y / oneBlockSize + 0.9999)][
                 parseInt(this.x / oneBlockSize)
             ] == 1 ||
@@ -264,15 +252,6 @@ class Ghost {
             this.height
         );
         canvasContext.restore();
-        canvasContext.beginPath();
-        canvasContext.strokeStyle = "red";
-        canvasContext.arc(
-            this.x + oneBlockSize / 2,
-            this.y + oneBlockSize / 2,
-            this.range * oneBlockSize,
-            0,
-            2 * Math.PI
-        );
         canvasContext.stroke();
     }
 }

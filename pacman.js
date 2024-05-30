@@ -86,7 +86,8 @@ class Pacman {
             ] == 1 ||
             map[parseInt(this.y / oneBlockSize + 0.9999)][
                 parseInt(this.x / oneBlockSize + 0.9999)
-            ] == 1
+            ] == 1 ||
+            this.x == 0
         ) {
             isCollided = true;
         }
